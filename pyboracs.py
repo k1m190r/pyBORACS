@@ -59,7 +59,7 @@ def borehole_ac2d(vpmodel, nx, nz, nt, dx, dt, isx, isz, irx, irz, ist, f0, nop=
                 pxx[j, :] = p[j - 1, :] - 2 * p[j, :] + p[j + 1, :]
 
         if nop == 5:
-            # calculate partial derivatives, be careful around the boundaries
+            # calculate partial (5 point stencil) derivatives, be careful around the boundaries
             for i in range(2, nx - 2):
                 pzz[:, i] = (
                     -1.0 / 12 * p[:, i + 2]
